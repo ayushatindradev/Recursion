@@ -1,0 +1,143 @@
+#include<iostream>
+using namespace std;
+void PrintNumbers(int n){
+    if(n==1){
+        cout<<1;
+        return;
+    }
+    cout<<n<<" ";
+    PrintNumbers(n-1);
+}
+void PrintNumbersAscendingOrder(int n){
+    if(n==1){
+        cout<<1<<" ";
+        return;
+    }
+    PrintNumbersAscendingOrder(n-1);
+    cout<<n<<" ";
+}
+int SumofFirstNNaturalNumbers(int n,int sum){
+    if(n==0){
+        return 0;
+    }
+    sum=n+SumofFirstNNaturalNumbers(n-1,sum);
+    return sum;
+
+}
+
+int FactorialofaNumber(int n){
+    if(n==0||n==1){
+        return n;
+    }
+    int ans = FactorialofaNumber(n-1);
+    int finalAns= n * ans;
+    return finalAns;
+
+}
+int  Fibonachi(int n){
+    if(n==0||n==1){
+        return n;
+    }
+    int ans = Fibonachi(n-1)+Fibonachi(n-2);
+    return ans;
+}
+void ReverseanArray(int arr[],int size,int left,int right){
+    if(left>=right){
+        return;
+    }
+    swap(arr[left],arr[right]);
+    ReverseanArray(arr,size,left+1,right-1);
+
+}
+bool CheckifaStringisaPalindrome(string str,int left,int right){
+    if(left>=right){
+        return true;
+    }
+    if(str[left]!=str[right]){
+        return false;
+    }
+    return CheckifaStringisaPalindrome(str,left,right);
+    
+
+}
+void PrintNtimes(int n){
+    if(n==0){
+        return;
+    }
+    cout<<"Hello"<<endl;
+    PrintNtimes(n-1);
+}
+void PrintNumbersfrom1toN(int n){
+    if(n==0){
+        return;
+    }
+    PrintNumbersfrom1toN(n-1);
+    cout<<n<<" ";
+}
+
+void PrintNumbersfromNto1(int n){
+    if(n==0){
+        return;
+    }
+    cout<<n<<" ";
+    PrintNumbersfromNto1(n-1);
+}
+int FindtheSumofFirstNNaturalNumbers(int n,int sum){
+    if(n==0){
+        return 0;
+    }
+     sum = n +FindtheSumofFirstNNaturalNumbers(n-1,sum);
+    return sum;
+
+}
+
+
+int main(){
+    // int n;
+    // cin>>n;
+    // PrintNumbers(n); 
+    // cout<<endl;
+    // PrintNumbersAscendingOrder(n);
+    // int sum=0;
+    // int ans =SumofFirstNNaturalNumbers(n,sum);
+    // cout<<ans;
+    // int n;
+    // cin>>n;
+    // cout<<FactorialofaNumber(n);
+//     int n;
+//     cin>>n;
+//    cout<< Fibonachi(n);
+// int arr[]={1,2,3,4,5};
+// int size= sizeof(arr)/sizeof(arr[0]);
+// int left=0;
+// int right = size-1;
+// ReverseanArray(arr,size,left,right);
+// for(int i=0;i<size;i++){
+//     cout<<arr[i]<<" ";
+// }
+    
+    // string str;
+    // cin >>str;
+    // int left=0;
+    // int right = str.size()-1;
+    // cout<< CheckifaStringisaPalindrome(str,left,right);
+    // int n;
+    // cin>>n;
+    // PrintNtimes(n);
+    // int n;
+    // cin>>n;
+    // PrintNumbersfrom1toN(n);
+
+    // int n;
+    // cin>>n;
+    // PrintNumbersfromNto1(n);
+    int n;
+    cin>>n;
+    int sum =0;
+    cout<<FindtheSumofFirstNNaturalNumbers(n,sum);
+
+
+    
+
+    
+}
