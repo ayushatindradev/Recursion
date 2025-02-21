@@ -1,143 +1,735 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-void PrintNumbers(int n){
-    if(n==1){
-        cout<<1;
+void printHello(int n)
+{
+    if (n == 0)
+    {
         return;
     }
-    cout<<n<<" ";
-    PrintNumbers(n-1);
+    cout << "Hello Ayush" << n << endl;
+    printHello(n - 1);
 }
-void PrintNumbersAscendingOrder(int n){
-    if(n==1){
-        cout<<1<<" ";
+void print1ToN(int n)
+{
+    if (n == 0)
+    {
         return;
     }
-    PrintNumbersAscendingOrder(n-1);
-    cout<<n<<" ";
+    print1ToN(n - 1);
+    cout << n << " ";
 }
-int SumofFirstNNaturalNumbers(int n,int sum){
-    if(n==0){
+void printNto1(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+
+    cout << n << " ";
+    print1ToN(n - 1);
+}
+int sumN(int n)
+{
+    if (n == 0)
+    {
         return 0;
     }
-    sum=n+SumofFirstNNaturalNumbers(n-1,sum);
-    return sum;
-
-}
-
-int FactorialofaNumber(int n){
-    if(n==0||n==1){
-        return n;
-    }
-    int ans = FactorialofaNumber(n-1);
-    int finalAns= n * ans;
-    return finalAns;
-
-}
-int  Fibonachi(int n){
-    if(n==0||n==1){
-        return n;
-    }
-    int ans = Fibonachi(n-1)+Fibonachi(n-2);
+    int ans = n + sumN(n - 1);
     return ans;
 }
-void ReverseanArray(int arr[],int size,int left,int right){
-    if(left>=right){
+int factorial(int n)
+{
+    if (n == 0 || n == 1)
+    {
+        return 1;
+    }
+    int ans = n * factorial(n - 1);
+    return ans;
+}
+void reverseArray(int arr[], int n)
+{
+    if (n == 0)
+    {
         return;
     }
-    swap(arr[left],arr[right]);
-    ReverseanArray(arr,size,left+1,right-1);
-
+    cout << arr[n - 1] << " ";
+    reverseArray(arr, n - 1);
 }
-bool CheckifaStringisaPalindrome(string str,int left,int right){
-    if(left>=right){
-        return true;
-    }
-    if(str[left]!=str[right]){
-        return false;
-    }
-    return CheckifaStringisaPalindrome(str,left,right);
-    
-
-}
-void PrintNtimes(int n){
-    if(n==0){
-        return;
-    }
-    cout<<"Hello"<<endl;
-    PrintNtimes(n-1);
-}
-void PrintNumbersfrom1toN(int n){
-    if(n==0){
-        return;
-    }
-    PrintNumbersfrom1toN(n-1);
-    cout<<n<<" ";
-}
-
-void PrintNumbersfromNto1(int n){
-    if(n==0){
-        return;
-    }
-    cout<<n<<" ";
-    PrintNumbersfromNto1(n-1);
-}
-int FindtheSumofFirstNNaturalNumbers(int n,int sum){
-    if(n==0){
+int maxDigit(int n)
+{
+    if (n == 0)
+    {
         return 0;
     }
-     sum = n +FindtheSumofFirstNNaturalNumbers(n-1,sum);
-    return sum;
-
+    int ans = max(n % 10, maxDigit(n / 10));
+    return ans;
 }
-
-
-int main(){
-    // int n;
-    // cin>>n;
-    // PrintNumbers(n); 
-    // cout<<endl;
-    // PrintNumbersAscendingOrder(n);
-    // int sum=0;
-    // int ans =SumofFirstNNaturalNumbers(n,sum);
-    // cout<<ans;
-    // int n;
-    // cin>>n;
-    // cout<<FactorialofaNumber(n);
-//     int n;
-//     cin>>n;
-//    cout<< Fibonachi(n);
-// int arr[]={1,2,3,4,5};
-// int size= sizeof(arr)/sizeof(arr[0]);
-// int left=0;
-// int right = size-1;
-// ReverseanArray(arr,size,left,right);
-// for(int i=0;i<size;i++){
-//     cout<<arr[i]<<" ";
-// }
-    
-    // string str;
-    // cin >>str;
-    // int left=0;
-    // int right = str.size()-1;
-    // cout<< CheckifaStringisaPalindrome(str,left,right);
-    // int n;
-    // cin>>n;
-    // PrintNtimes(n);
-    // int n;
-    // cin>>n;
-    // PrintNumbersfrom1toN(n);
-
-    // int n;
-    // cin>>n;
-    // PrintNumbersfromNto1(n);
-    int n;
-    cin>>n;
-    int sum =0;
-    cout<<FindtheSumofFirstNNaturalNumbers(n,sum);
-
-
-    
-
-    
+int countDigit(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return 1 + countDigit(n / 10);
+}
+int sumOfDigit(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return (n % 10) + sumOfDigit(n / 10);
+}
+bool isPalendrome(string s, int left, int right)
+{
+    if (left >= right)
+    {
+        return true;
+    }
+    if (s[left] != s[right])
+    {
+        return false;
+    }
+    return isPalendrome(s, left + 1, right - 1);
+}
+void printhi(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << "Hi " << n << endl;
+    printhi(n - 1);
+}
+void print1toN(int n)
+{
+    if (n == 0)
+    {
+        if (n == 0)
+        {
+            return;
+        }
+        print1ToN(n - 1);
+        cout << n << " ";
+    }
+}
+void printNto1(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << n << " ";
+    printNto1(n - 1);
+}
+int sumN(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return n + sumN(n - 1);
+}
+int factorial(int n)
+{
+    if (n == 0 || n == 1)
+    {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+int countDigit(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return 1 + countDigit(n / 10);
+}
+int sumofDigit(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return n % 10 + sumofDigit(n / 10);
+}
+int maxDigit(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return max(n % 10, maxDigit(n / 10));
+}
+int reverseNumber(int n, int rev = 0)
+{
+    if (n == 0)
+    {
+        return rev;
+    }
+    return reverseNumber(n / 10, rev * 10 + n % 10);
+}
+bool palendrome(int n, int rev = 0, int temp = 0)
+{
+    if (temp == 0)
+    {
+        temp = n;
+    }
+    if (n == 0)
+    {
+        return rev == temp;
+    }
+    return isPalendrome(n / 10, rev * 10 + n / 10, temp);
+}
+void printArray(int arr[], int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << arr[n - 1] << " ";
+    printArray(arr, n - 1);
+}
+void printHello(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << "Hello" << endl;
+    printHello(n - 1);
+}
+void print1toN(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    print1ToN(n - 1);
+    cout << n << " ";
+}
+void printNto1(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << n << " ";
+    printNto1(n - 1);
+}
+int sumN(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return n + sumN(n - 1);
+}
+int factorial(int n)
+{
+    if (n == 0 || n == 1)
+    {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+int revseseNumber(int n, int rev = 0)
+{
+    if (n == 0)
+    {
+        return rev;
+    }
+    return reverseNumber(n / 10, rev * 10 + n % 10);
+}
+int countDigit(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return 1 + (n / 10);
+}
+int maxDigit(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return max(n % 10, maxDigit(n, 10));
+}
+bool isPalendrome(string str, int left, int right)
+{
+    if (left >= right)
+    {
+        return true;
+    }
+    if (str[left] != str[right])
+    {
+        return false;
+    }
+    return isPalendrome(str, left + 1, right - 1);
+}
+int sumN(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return n % 10 + sumN(n / 10);
+}
+void printHello(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    cout << "Hello World" << endl;
+    printHello(n - 1);
+}
+void printNumber(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    printNumber(n - 1);
+    cout << n << " ";
+}
+void printReverse(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout < n << " ";
+    printReverse(n - 1);
+}
+int sumNumber(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return n + sumNumber(n - 1);
+}
+int factorial(int n)
+{
+    if (n == 0 || n == 1)
+    {
+        return 1;
+    }
+    return n * factorial(n - 1);
+}
+int countDigit(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return 1 + countDigit(n / 10);
+}
+int sumDigit(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return (n % 10) + sumDigit(n / 10);
+}
+int maxDigit(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return max(n % 10, maxDigit(n / 10));
+}
+string reverseString(string s)
+{
+    if (s.length() == 0)
+    {
+        return "";
+    }
+    return reverseString(s.substr(1)) + s[0];
+}
+bool isPalendrome(string s, int left, int right)
+{
+    if (left >= right)
+    {
+        return true;
+    }
+    if (s[left] != s[right])
+    {
+        return false;
+    }
+    return isPalendrome(s, left + 1, right - 1);
+}
+void printHi()
+{
+    cout << "Hi" << endl;
+}
+void printHello(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << "hello" << endl;
+    printHello(n - 1);
+}
+void printHello(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << "hello" << endl;
+    printHello(n - 1);
+}
+void print123(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << n % 10;
+    print123(n / 10);
+}
+void printd123(int n)
+{
+    if (n == 0)
+    {
+        if (n > 3)
+        {
+            return;
+        }
+        cout << n << " ";
+        print123(n - 1);
+    }
+}
+void printCoding(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << "Coding " << n << endl;
+    printCoding(n - 1);
+}
+void printEven(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    if (n % 2 == 0)
+    {
+        cout << n << " ";
+    }
+    printEven(n - 1);
+}
+int sum(int n)
+{
+    if (n == 1)
+    {
+        return 1;
+    }
+    return n + sum(n - 1);
+}
+void printstar(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << "* ";
+    printstar(n - 1);
+}
+bool isZero(int n)
+{
+    if (n == 0)
+    {
+        return true;
+    }
+    return false;
+}
+int multiply2(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return 2 * multiplies(n - 1);
+}
+void checkPositive(int n)
+{
+    if (n > 0)
+    {
+        cout << "yes";
+    }
+    else
+    {
+        cout << "no";
+    }
+}
+void countTo5(int n)
+{
+    if (n > 5)
+    {
+        return;
+    }
+    cout << n << " ";
+    countTo5(n + 1);
+}
+void countTo5(int n)
+{
+    if (n > 5)
+    {
+        return;
+    }
+    countTo5(n + 1);
+    cout << n << " ";
+    return;
+}
+void printDone(int n)
+{
+    if (n > 3)
+    {
+        cout << "Done";
+        return;
+    }
+    cout << n << " ";
+    printDone(n + 1);
+}
+int multiply(int a, int b)
+{
+    if (b == 0)
+    {
+        return 0;
+    }
+    return a + multiply(a, b - 1);
+}
+void printA()
+{
+    cout << "a";
+}
+void printA(int a)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << n << " ";
+    printA(n - 1);
+}
+void print(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << n << " ";
+    print(n - 1);
+}
+void printHI()
+{
+    cout << "HI";
+}
+void printGoodMorinng(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << "Good morning" << endl;
+    printGoodMorning(n - 1);
+}
+void printFive()
+{
+    cout << "5";
+}
+void printOneTwo(int n)
+{
+    if (n > 2)
+    {
+        return;
+    }
+    cout << n << " ";
+    printOneTwo(n + 1);
+}
+void printThreeTwoOne(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << n << " ";
+    printThreeTwoOne(n - 1);
+}
+void printEvenNumber(int n, int count = 1)
+{
+    if (count > 2)
+    {
+        return;
+    }
+    cout << n << " ";
+    printEvenNumber(n + 2, count + 1);
+}
+int sum(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return n + sum(n - 1);
+}
+void printHash(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << "#";
+    printHash(n - 1);
+}
+int multiply(int a, int b)
+{
+    if (b == 0)
+    {
+        return 0;
+    }
+    return a + multiply(a, b - 1);
+}
+int multiply(int a, int b)
+{
+    if (b == 0)
+    {
+        return 0;
+    }
+    return a + multiply(a, b - 1);
+}
+void printHEllo()
+{
+    cout << "hi";
+}
+void printBye(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << "bye" << endl;
+    printBye(n - 1);
+}
+void printSeven()
+{
+    cout << "7";
+}
+void printTwoThree(int n)
+{
+    if (n > 3)
+    {
+        return;
+    }
+    cout << n << " ";
+    printTwoThree(n + 1);
+}
+void printFourThreeTwo(int n)
+{
+    if (n == 1)
+    {
+        return;
+    }
+    cout << n << " ";
+    printFourThreeTwo(n - 1);
+}
+int sumodd(int n)
+{
+    if (n == 1)
+    {
+        return 1;
+    }
+    return n + sumodd(n - 2);
+}
+int printX(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << "X ";
+    printX(n - 1);
+}
+void multiplyFourTwo(int a, int b)
+{
+    if (b == 0)
+    {
+        return 0;
+    }
+    return a + multiplyFourTwo(a, b - 1);
+}
+void printA()
+{
+    cout << "A";
+}
+void printHello()
+{
+    cout << "Hello";
+}
+void printone()
+{
+    cout << "1";
+}
+void prinmttwo()
+{
+    cout << "2";
+}
+void printYes()
+{
+    cout << "Yes";
+}
+void printStar()
+{
+    cout << "Star";
+}
+void printHi(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << "Hi ";
+    printHi(n - 1);
+}
+void printOk(int n)
+{
+    if (n == 0)
+    {
+        return;
+    }
+    cout << "Ok ";
+    printOk(n - 1);
+}
+void printZero()
+{
+    cout << "0";
+}
+void printName(string name)
+{
+    if (name.length() == 0)
+    {
+        return;
+    }
+    cout << name[0];
+    printName(name.substr(1));
+}
+void printZero()
+{
+    cout << "Done";
+}
+int main()
+{
+    int n = 4526;
+    cout << "Max Digit: " << maxDigit(n);
 }
