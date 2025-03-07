@@ -1,0 +1,139 @@
+#include<iostream>
+using namespace std;
+int factorial(int n){
+ if(n==0||n==1){
+    return 1;
+ }
+ int ans =n*factorial(n-1);
+ return ans;
+}
+void counting(int n){
+    if(n==0){
+        return;
+    }
+    counting(n-1);
+    cout<<n<<" ";  // printing the number in reverse order 
+}
+
+void counting1(int n){
+    if(n==0){
+        return;
+    }
+    cout<<n<<" "; 
+    counting1(n-1);
+    
+}
+int sumN(int n){
+    if(n==0){
+        return 0;
+    }
+    int sum = n+ sumN(n-1);
+    return sum;
+}
+bool checkPalendrom(string str,int left,int right){
+    while(left<right){
+        if(str[left]!=str[right]){
+           return false;
+        }
+       left++,right--;
+    }
+    return true;
+}
+int fibonachii(int n){
+    if(n==0||n==1){
+        return 1;
+    }
+    int ans = fibonachii(n-1)+fibonachii(n-2);
+    return ans;
+}
+void reverseString(string &str,int left,int right){
+
+    if(left>=right){
+        return;
+    }
+    swap(str[left],str[right]);
+    reverseString(str,left+1,right-1);
+}
+void printSubsequence(string s,string output,int index){
+    if(index ==s.length()){
+        cout<<output<<endl;
+        return;
+    }
+    // 
+    printSubsequence(s,output,index+1);
+
+    printSubsequence(s, output + s[index], index + 1);
+
+}
+int power1(int x,int n){
+    if(n==0){
+        return 1;
+    }
+    int ans = x*power1(x,n-1);
+    return ans;
+    
+}
+int countWays(int n){
+    if(n==0){
+        return 1;
+    }
+    if(n<0){
+        return 0;
+    }
+    return countWays(n-1)+countWays(n-2);
+}
+int sumOfDigit(int n){
+    if(n==0){
+        return 0;
+    }
+    return (n%10)+sumOfDigit(n/10);
+}
+int main(){
+//     int n;
+//     cin>>n;
+//    cout<< factorial(n);
+// Print Numbers from N to 1
+// int n;
+// cin>>n;
+// counting1(n);
+// 3️⃣ Sum of First N Natural Numbers
+// int n;
+// cin>>n;
+// cout<<sumN(n);
+// // 4️⃣ Check if a String is Palindrome
+//     string str;
+//     cin >>str;
+//     int left = 0,right =str.size()-1;
+//    cout<< checkPalendrom(str,left,right);
+// // Fibonacci Series (Nth Term)
+//     int n;
+//     cin>>n;
+//     cout<<fibonachii(n);
+
+// // 1️⃣ Reverse a String Using Recursion
+//  string str;
+//  cin >>str;
+//  reverseString(str,0,str.size()-1);
+//  cout<<str;
+
+// 2️⃣ Print All Subsequences of a String
+//  string str="abc";
+//  printSubsequence(str,"",0);
+
+// 3️⃣ Find the Power of a Number (x^n)
+    // int x=2,n=5;
+    // cout<<power1(x,n);
+
+    // 8️⃣ Count Ways to Reach Nth Stair
+    // 9️⃣ Sum of Digits of a Number
+// 
+
+
+
+    int N= 1234;
+    cout<<"Sum of digit :"<<sumOfDigit(n/10);
+  
+
+
+ return 0;
+}
